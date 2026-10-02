@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{links :: links}"></th:block>
+</head>
+<body>
+<div th:insert="nav.html"></div>
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <form action="/update-car" method="post">
+                <input type="hidden" th:value="${car.id}" name="id">
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>MODEL</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="model" th:value="${car.model}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>COLOR</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="color" th:value="${car.color}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>ENGINE</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="engine" th:value="${car.engine}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>YEAR</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="year" th:value="${car.year}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>AKPP</label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="text" class="form-control" name="akpp" th:value="${car.akpp}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <button class="btn btn-success btn-sm">UPDATE CAR</button>
+                    </div>
+                </div>
+            </form>
+            <form action="/delete" method="post">
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input type="hidden" th:value="${car.id}" name="id">
+                        <button class="btn btn-danger btn-sm">DELETE CAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
