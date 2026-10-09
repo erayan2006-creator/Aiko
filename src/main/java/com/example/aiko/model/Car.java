@@ -1,18 +1,15 @@
 package com.example.aiko.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-@Getter
-@Setter
+@Data
+// @Data = @Getter, @Setter, @ToString, @EqualsAndHashCode и @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-// Эти 4 команды создали для нас конструкторы и геттеры, сеттеры
+@Builder
 public class Car {
     private Integer id;
     private String model;
@@ -23,7 +20,7 @@ public class Car {
     public static ArrayList<Car> cars = new ArrayList<>();
     private static Integer idCar = 4;
     static {
-        cars.add(new Car(1, "BMW", "black", 3.5, 2025, "AUTO"));
+        cars.add(Car.builder().id(1).model("BMW").color("black").engine(3.5).year(2025).akpp("AUTO").build());
         cars.add(new Car(2, "TOYOTA", "white", 3, 2026, "AUTO"));
         cars.add(new Car(3, "KIA", "black", 1.5, 2020, "AUTO"));
     }

@@ -29,6 +29,13 @@ public class HomeController {
         model.addAttribute("car", Car.getCarById(id));
         return "details-car";
     }
+    /*
+    @GetMapping(value = "/details")
+    public String getCarDetails(@RequestParam Integer id, Model model){
+        model.addAttribute("car", Car.getCarById(id));
+        return "details-car";
+    }
+    */
 
     @PostMapping(value = "/update-car")
     public String updateCar(Car car){
