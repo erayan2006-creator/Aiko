@@ -1,8 +1,10 @@
 package com.example.aiko.model;
 
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Data
@@ -10,16 +12,22 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
+@Table(name = "cars")
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String model;
     private String color;
     private double engine;
     private int year;
     private String akpp;
-    public static ArrayList<Car> cars = new ArrayList<>();
-    private static Integer idCar = 4;
-    static {
+    @ManyToMany
+    private List<City> cities;
+    @ManyToOne
+    private CarOwner carOwner;
+    /*static {
         cars.add(Car.builder().id(1).model("BMW").color("black").engine(3.5).year(2025).akpp("AUTO").build());
         cars.add(new Car(2, "TOYOTA", "white", 3, 2026, "AUTO"));
         cars.add(new Car(3, "KIA", "black", 1.5, 2020, "AUTO"));
@@ -53,4 +61,4 @@ public class Car {
     public static void deleteCar(int id) {
         cars.removeIf(car -> Objects.equals(car.getId(), id));
     }
-}
+}*/}
