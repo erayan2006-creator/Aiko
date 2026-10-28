@@ -24,7 +24,13 @@ public class Car {
     private int year;
     private String akpp;
     @ManyToMany
-    private List<City> cities;
+    @JoinTable(
+            name = "cars_cities",
+            joinColumns = @JoinColumn(name = "car_id"),
+            inverseJoinColumns = @JoinColumn(name = "cities_id")
+    )
+    @Builder.Default
+    private List<City> cities = new ArrayList<>();
     @ManyToOne
     private CarOwner carOwner;
     /*static {

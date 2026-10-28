@@ -62,6 +62,21 @@
                             <input type="text" class="form-control" name="akpp" th:value="${car.akpp}">
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="cityIds" class="form-label">Cities</label>
+
+                        <select class="form-select"
+                                id="cityIds"
+                                name="cityIds"
+                                multiple>
+
+                            <option th:each="city : ${cities}"
+                                    th:value="${city.id}"
+                                    th:text="${city.name + ' | ' + city.code}">
+                            </option>
+
+                        </select>
+                    </div>
                     <div class="row mt-2">
                         <div class="col-12">
                             <button class="btn btn-success btn-sm">UPDATE CAR</button>

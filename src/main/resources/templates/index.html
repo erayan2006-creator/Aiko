@@ -75,6 +75,21 @@
                                 <input type="text" class="form-control" name="akpp">
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="cityIds" class="form-label">Cities</label>
+
+                            <select class="form-select"
+                                    id="cityIds"
+                                    name="cityIds"
+                                    multiple>
+
+                                <option th:each="city : ${cities}"
+                                        th:value="${city.id}"
+                                        th:text="${city.name + ' | ' + city.code}">
+                                </option>
+
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -92,6 +107,7 @@
             <th>YEAR</th>
             <th>ENGINE</th>
             <th>AKPP</th>
+            <th>CITY</th>
             <th style="width: 7%;">DETAILS</th>
         </tr>
         </thead>
@@ -102,6 +118,7 @@
             <td th:text="${car.year}"></td>
             <td th:text="${car.engine}"></td>
             <td th:text="${car.akpp}"></td>
+            <td><span th:each="city, iterStat : ${car.cities}"><span th:text="${city.name}"></span><span th:if="${!iterStat.last}">, </span></span></td>
             <td><a class="btn btn-secondary btn-sm" th:href="@{'/details/'+ ${car.id}}">DETAILS</a></td>
         </tr>
         </tbody>
