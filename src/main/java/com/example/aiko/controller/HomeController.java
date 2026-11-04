@@ -27,6 +27,14 @@ public class HomeController {
         model.addAttribute("cities", cityRepository.findAll());
         return "index";
     }
+    @GetMapping(value = "/search")
+    public String getCarsByWord(@RequestParam String word,
+                                    Model model){
+        model.addAttribute("cars", carRepository.findCarsByWord(word));
+        model.addAttribute("cities", cityRepository.findAll());
+
+        return "index";
+    }
     @PostMapping("/add")
     public String addCar(
             Car car,

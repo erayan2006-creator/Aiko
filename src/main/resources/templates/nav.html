@@ -7,7 +7,7 @@
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: #1fffa5">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">MAIN PAGE</a>
+        <a class="navbar-brand" href="/">MAIN PAGE</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,8 +20,8 @@
                     <a class="nav-link" href="#">ALL CITIES</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <form class="d-flex" action="/search" method="get" role="search">
+                <input class="form-control me-2" name="word" type="search" placeholder="Search" aria-label="Search"/>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
