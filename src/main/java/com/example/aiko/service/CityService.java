@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface CityService {
     List<City> getAllCities();
+    City getCity(int id);
 }
